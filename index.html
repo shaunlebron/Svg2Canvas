@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<script src="jquery.min.js"></script>
+<script src="oss.canvg.min.js"></script>
+<script src="svg2canvas.js"></script>
+<style>
+textarea {
+	width: 500px;
+	height: 200px;
+}
+</style>
+</head>
+<body>
+<h2>SVG2Canvas</h2>
+<p>
+This is a simplified, offline version of <a href="http://www.omnisoftsystems.com/?returnUrl=/iTrax/Home/svg2Canvas/0">SVG2Canvas Processor</a>, which is based on <a href="https://code.google.com/p/canvg/">canvg</a>.
+</p>
+<h3>Input</h3>
+<textarea id="txtAreaSVGInput"></textarea>
+<button id="btnGenerate">Generate</button>
+
+<h3>Output</h3>
+<textarea id="txtAreaOSSCanvas2DContext"></textarea>
+
+<h3>Preview</h3>
+<canvas id="canvasCanvgResult"></canvas>
+
+<script>
+
+$(function(){
+
+	$('#btnGenerate').on('click', function(){
+		svg2canvas($('#txtAreaSVGInput').val(), function(result) {
+			$('#txtAreaOSSCanvas2DContext').val(result);
+		});
+	});
+
+})
+</script>
+
+</body>
+</html>
